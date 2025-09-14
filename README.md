@@ -346,7 +346,7 @@ module.exports = {
 ### ML models
 We've used huggingface spaces as our main deployment tool of our ml solutions, easy, fast, high quality.
 For an MVP, we thought of HF spaces as the best option, because, it supports fast gradio app development, 
-testing and computational efficiency, as of now, out ml solutions do not require specific computational 
+testing and computational efficiency, as of now, outr ml solutions do not require specific computational 
 power, but in hf spaces, especially DL model in large scale of data, requires more time resources.
 ### Production Build
 ```bash
