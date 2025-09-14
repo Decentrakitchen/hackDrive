@@ -48,7 +48,7 @@ const DensityMap: React.FC = () => {
                 <h1 
                   className="font-bold mb-6"
                   style={{
-                    fontSize: 'clamp(3rem, 8vw, 7rem)',
+                    fontSize: 'clamp(1rem, 6vw, 4rem)',
                     background: 'linear-gradient(to right, #3b82f6, #8b5cf6, #a855f7)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
