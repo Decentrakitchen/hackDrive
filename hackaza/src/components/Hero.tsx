@@ -135,8 +135,8 @@ const Hero: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
           {[
-            { number: "99.8%", label: "Accuracy Rate" },
-            { number: "50K+", label: "Routes Analyzed" },
+            { number: "89.3%", label: "Accuracy Rate" },
+            { number: "1.2M+", label: "Data points processed" },
             { number: "24/7", label: "Real-time Monitoring" },
             { number: "30%", label: "Cost Reduction" },
           ].map((stat, index) => (

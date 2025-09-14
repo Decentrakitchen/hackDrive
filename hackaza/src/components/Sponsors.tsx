@@ -68,7 +68,7 @@ const Sponsors: React.FC = () => {
                   key={`first-${index}`}
                   whileHover={{ scale: 1.1, y: -5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  className="flex-shrink-0 w-48 h-24 bg-white rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 flex items-center justify-center group backdrop-blur-sm"
+                  className="flex-shrink-0 w-48 h-24 flex items-center justify-center group"
                 >
                   <img
                     src={sponsor.logo}
@@ -101,7 +101,7 @@ const Sponsors: React.FC = () => {
                   key={`second-${index}`}
                   whileHover={{ scale: 1.1, y: -5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  className="flex-shrink-0 w-48 h-24 bg-white rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 flex items-center justify-center group backdrop-blur-sm"
+                  className="flex-shrink-0 w-48 h-24 flex items-center justify-center group"
                 >
                   <img
                     src={sponsor.logo}

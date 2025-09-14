@@ -48,7 +48,7 @@ const DetectAnomaly: React.FC = () => {
                 <h1 
                   className="font-bold mb-6"
                   style={{
-                    fontSize: 'clamp(3rem, 8vw, 7rem)',
+                    fontSize: 'clamp(1rem, 6vw, 4rem)',
                     background: 'linear-gradient(to right, #ef4444, #f97316, #eab308)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
