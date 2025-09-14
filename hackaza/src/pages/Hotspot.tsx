@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Flame, Navigation, ExternalLink, Maximize2, Minimize2, RefreshCw } from 'lucide-react';
+import { MapPin, Flame, Navigation, ExternalLink, Maximize2, Minimize2, RefreshCw, Brain } from 'lucide-react';
 
 const Hotspot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showAiAlert, setShowAiAlert] = useState(true);
 
   useEffect(() => {
     // Realistic loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
-    return () => clearTimeout(timer);
+    
+    // Hide AI alert after some time
+    const alertTimer = setTimeout(() => {
+      setShowAiAlert(false);
+    }, 8000);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(alertTimer);
+    };
   }, []);
 
   const toggleFullscreen = () => {
@@ -25,6 +35,47 @@ const Hotspot: React.FC = () => {
 
   return (
     <>
+      {/* AI Loading Alert - Glassmorphism Style */}
+      <AnimatePresence>
+        {showAiAlert && (
+          <motion.div
+            initial={{ opacity: 0, x: 100, y: -20 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, x: 100, y: -20 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="fixed top-6 right-6 z-50"
+          >
+            <div className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-4 shadow-xl max-w-sm">
+              <div className="flex items-start space-x-3">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                  className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center"
+                >
+                  <Brain className="w-4 h-4 text-white" />
+                </motion.div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-gray-800 text-sm mb-1">
+                    AI Analysis Loading
+                  </h4>
+                  <p className="text-gray-600 text-xs leading-relaxed">
+                    AI-powered traffic analysis is processing. This may take a few moments to complete.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowAiAlert(false)}
+                  className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Regular Page Layout */}
       {!isFullscreen && (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
